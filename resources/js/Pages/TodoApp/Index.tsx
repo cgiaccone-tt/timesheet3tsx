@@ -7,11 +7,12 @@ import '../../../css/TodoReset.css';
 import '../../../css/TodoApp.css';
 import { TodosContext } from '../../Context/TodosContext';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
+import { Todo } from './interfaces';
 
-function TodoApp() {
+function TodoApp(): React.JSX.Element {
     const [name, setName] = useLocalStorage('name', '');
 
-    const nameInputEl = useRef(null);
+    const nameInputEl = useRef<HTMLInputElement>(null);
     const [todos, setTodos] = useLocalStorage('todos', []);
 
     const [idForTodo, setIdForTodo] = useLocalStorage('idForTodo', 1);
@@ -22,15 +23,19 @@ function TodoApp() {
         if (filter === 'all') {
             return todos;
         } else if (filter === 'active') {
-            return todos.filter(todo => !todo.isComplete);
+            return todos.filter((todo: Todo) => !todo.isComplete);
         } else if (filter === 'completed') {
-            return todos.filter(todo => todo.isComplete);
+            return todos.filter((todo:Todo) => todo.isComplete);
         }
     }
 
     useEffect(() => {
         // console.log('use effect running');
-        nameInputEl.current.focus();
+        if (nameInputEl.current !== null)
+        {
+          nameInputEl.current.focus();
+        }
+        
 
         // setName(JSON.parse(localStorage.getItem('name')) ?? '');
 
@@ -39,7 +44,7 @@ function TodoApp() {
         };
     }, []);
 
-    function handleNameInput(event) {
+    function handleNameInput(event: React.ChangeEvent<HTMLInputElement>) {
         setName(event.target.value);
         // localStorage.setItem('name', JSON.stringify(event.target.value));
     }
@@ -58,7 +63,7 @@ function TodoApp() {
         >
                 <div className="todo-app">
                     <div className="name-container">
-                        <h2>What is your name?</h2>
+                        <h2>What is your nameAAAA?</h2>
                         <form action="#">
                             <input
                                 type="text"

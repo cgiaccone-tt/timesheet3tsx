@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from '@inertiajs/react';
-import NavigationBar from "@/Pages/TodoApp/NavigationBar";
+import NavigationBar from "../NavigationBar";
 
-export default function Blog() {
+export default function Blog(): React.JSX.Element {
   return (
     <div className="todo-app-container">
         <NavigationBar />

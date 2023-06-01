@@ -1,7 +1,8 @@
 import React from 'react';
-import useFetch from '/resources/js/hooks/useFetch';
+import useFetch from '@/hooks/useFetch';
+import { IReddit, IRedditPostWithData } from '../interfaces';
 
-export default function Reddit() {
+export default function Reddit(): React.JSX.Element {
     // const {
     //   data: posts,
     //   isLoading,
@@ -11,8 +12,8 @@ export default function Reddit() {
     const {
         data: posts,
         isLoading,
-    errorMessage,
-  } = useFetch('https://www.reddit.com/r/aww.json');
+        errorMessage,
+    } = useFetch('https://www.reddit.com/r/aww.json');
 
     return (
         <div>
@@ -20,10 +21,10 @@ export default function Reddit() {
             {isLoading && <div>Loading...</div>}
       {posts && (
                 <ul>
-                    {posts.data.children.map(post => (
+                    {posts.data.children.map((post: IRedditPostWithData) => (
                         <li key={post.data.id}>
                             <a href={`https://reddit.com${post.data.permalink}`}>
-                                {console.log(post.data.permalink)}
+                                {console.log(post.data) as unknown as string}
                                 {post.data.title}
                             </a>
                         </li>

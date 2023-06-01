@@ -4,19 +4,19 @@ import { useState } from 'react';
 import RedditUseQuery from "./RedditUseQuery";
 import JokeUseQuery from "./JokeUseQuery";
 
-function RedditJokeUseQuery() {
-    const [redditVisible, setRedditVisible] = useState(false);
-    const [jokeVisible, setJokeVisible] = useState(false);
+function RedditJokeUseQuery(): React.JSX.Element {
+    const [redditVisible, setRedditVisible] = useState<boolean>(false);
+    const [jokeVisible, setJokeVisible] = useState<boolean>(false);
 
     return (
         <div>
             <div className="buttons">
                 <button
-                    onClick={() => setRedditVisible(prevRedditVisible => !redditVisible)}
+                    onClick={() => setRedditVisible(() => !redditVisible)}
                 >
                     Toggle Reddit
                 </button>
-                <button onClick={() => setJokeVisible(prevJokeVisible => !jokeVisible)}>
+                <button onClick={() => setJokeVisible(() => !jokeVisible)}>
                     Toggle Joke
                 </button>
             </div>

@@ -13,10 +13,12 @@ function TodoList() {
     const [isFeaturesTwoVisible, setFeaturesTwoVisible] = useToggle('isFeaturesTwoVisible', true);
 
     function deleteTodo(id) {
+        //console.log('yyyyy:' + todos);
         setTodos([...todos].filter(todo => todo.id !== id));
     }
 
     function completeTodo(id) {
+        //console.log('zzzzzz:' + todos);
         const updatedTodos = todos.map(todo => {
             if (todo.id === id) {
                 todo.isComplete = !todo.isComplete;
@@ -29,6 +31,7 @@ function TodoList() {
     }
 
     function markAsEditing(id) {
+        //console.log('wwwwwww:' + todos);
         const updatedTodos = todos.map(todo => {
             if (todo.id === id) {
                 todo.isEditing = true;
@@ -41,6 +44,7 @@ function TodoList() {
     }
 
     function updateTodo(event, id) {
+        //console.log('xxxxxx:' + todos);
         const updatedTodos = todos.map(todo => {
             if (todo.id === id) {
                 if (event.target.value.trim().length === 0) {
@@ -58,6 +62,7 @@ function TodoList() {
     }
 
     function cancelEdit(event, id) {
+        //console.log('tttttt:' + todos);
         const updatedTodos = todos.map(todo => {
             if (todo.id === id) {
                 todo.isEditing = false;

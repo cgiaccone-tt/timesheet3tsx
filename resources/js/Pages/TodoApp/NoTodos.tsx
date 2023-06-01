@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function NoTodos() {
+export default function NoTodos(): React.JSX.Element {
     return (
         <div className="no-todos-container">
             <svg

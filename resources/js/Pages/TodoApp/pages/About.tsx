@@ -10,8 +10,8 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
 
-export default function About() {
-    const queryClient = new QueryClient();
+export default function About(): React.JSX.Element {
+    const queryClient: QueryClient = new QueryClient();
     return (
     <div className="todo-app-container">
         <NavigationBar />
